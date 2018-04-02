@@ -1,0 +1,27 @@
+gpu_sim_cycle = 783
+gpu_sim_insn = 18264
+gpu_ipc =      23.3257
+gpu_tot_sim_cycle = 132861
+gpu_tot_sim_insn = 3320373
+gpu_tot_ipc =      24.9913
+gpu_tot_issued_cta = 0
+all shader active cycle:1202378
+Warp Occupancy Distribution:
+Stall:2946	W0_Idle:82211	W0_Scoreboard:975358	load dependence:547569
+low:21316	medium:19281	high:101266
+insts:141861
+loads:10018
+gather_loads:8283	warp_one_thread_one_access:34
+num_gather_accesses:66058
+average warp pair found:11.338235
+number of pairing processed:9221
+number of failed pairing:9153
+average diverged warps:16.070054
+average missq size:1.323706
+diverged cycles:547450
+average diverged cycles:2.294407
+average distance between two loads:8.377132
+average distance between gather_loads and normal loads:4.389791
+average distance between normal loads and gather_loads:24.561593
+gpgpu-sim Average coalesed accesses: 0.000000
+gpgpu-sim Percentage of uncoalesed load: 0.000000

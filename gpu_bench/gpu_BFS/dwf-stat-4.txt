@@ -1,0 +1,70 @@
+gpu_sim_cycle = 71005
+gpu_sim_insn = 455810
+gpu_ipc =       6.4194
+gpu_tot_sim_cycle = 313660
+gpu_tot_sim_insn = 1718334
+gpu_tot_ipc =       5.4783
+gpu_tot_issued_cta = 0
+Cluster 0:	Core 0:
+162	0	
+
+Cluster 1:	Core 0:
+50517	20032	
+
+Cluster 2:	Core 0:
+48719	22026	
+
+Cluster 3:	Core 0:
+46064	16964	
+
+Cluster 4:	Core 0:
+54332	16671	
+
+Cluster 5:	Core 0:
+43653	14834	
+
+Cluster 6:	Core 0:
+46967	18062	
+
+Cluster 7:	Core 0:
+47901	15276	
+
+Cluster 8:	Core 0:
+38659	12787	
+
+Cluster 9:	Core 0:
+162	0	
+
+Cluster 10:	Core 0:
+162	0	
+
+Cluster 11:	Core 0:
+162	0	
+
+Cluster 12:	Core 0:
+162	0	
+
+Cluster 13:	Core 0:
+162	0	
+
+Cluster 14:	Core 0:
+162	0	
+
+Warp Occupancy Distribution:
+Stall:24452	W0_Idle:230167	W0_Scoreboard:2831233	load dependence:8025
+memory unit stall:24181
+sp unit stall:0
+sfu unit stall:271
+W1:1292887	W2:52494	W3:11300	W4:5019	W5:2352	W6:1062	W7:802	W8:552	W9:266	W10:242	W11:272	W12:226	W13:167	W14:148	W15:382	W16:1131	W17:38	W18:31	W19:25	W20:10	W21:11	W22:0	W23:10	W24:22	W25:10	W26:10	W27:0	W28:5	W29:5	W30:20	W31:144	W32:6965	
+insts:1374460
+loads:303951
+gather_loads:11980
+num_gather_accesses:31708
+average distance between two loads:4.479230
+average distance between gather_loads and normal loads:1953.300268
+average distance between normal loads and gather_loads:23.073789
+gpgpu-sim Average coalesed accesses: 1.064905
+gpgpu-sim Percentage of uncoalesed load: 0.000000
+gppgu-sim Average first latency: 9.013811
+gppgu-sim Average last latency: 9.377630
+gppgu-sim Average latency gap: 18.391441

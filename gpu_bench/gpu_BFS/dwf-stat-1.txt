@@ -1,0 +1,18 @@
+gpu_sim_cycle = 981
+gpu_sim_insn = 23200
+gpu_ipc =      23.6493
+gpu_tot_sim_cycle = 981
+gpu_tot_sim_insn = 23200
+gpu_tot_ipc =      23.6493
+gpu_tot_issued_cta = 0
+all shader active cycle:24070
+Warp Occupancy Distribution:
+Stall:8	W0_Idle:14398	W0_Scoreboard:8904	load dependence:0
+low:5	medium:0	high:755
+insts:760
+loads:0
+gather_loads:0	warp_one_thread_one_access:0
+num_gather_accesses:0
+average distance between two loads:-nan
+average distance between gather_loads and normal loads:-nan
+average distance between normal loads and gather_loads:-nan

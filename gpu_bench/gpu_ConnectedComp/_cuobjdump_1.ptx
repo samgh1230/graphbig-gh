@@ -1,0 +1,339 @@
+
+	.version 1.4
+	.target sm_11, map_f64_to_f32
+	// compiled with /usr/local/cuda-5.5/open64/lib//be
+	// nvopencc 4.0 built on 2011-05-12
+
+	//-----------------------------------------------------------
+	// Compiling /tmp/tmpxft_000072df_00000000-7_connected_comp.cpp3.i (/tmp/ccBI#.8n50AF)
+	//-----------------------------------------------------------
+
+	//-----------------------------------------------------------
+	// Options:
+	//-----------------------------------------------------------
+	//  Target:ptx, ISA:sm_11, Endian:little, Pointer Size:64
+	//  -O3	(Optimization level)
+	//  -g0	(Debug level)
+	//  -m2	(Report advisories)
+	//-----------------------------------------------------------
+
+	.file	1	"<command-line>"
+	.file	2	"/tmp/tmpxft_000072df_00000000-6_connected_comp.cudafe2.gpu"
+	.file	3	"../../gpu_bench/cudalib/cudaGraph.h"
+	.file	4	"/usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h"
+	.file	5	"/usr/local/cuda/bin/../include/crt/device_runtime.h"
+	.file	6	"/usr/local/cuda/bin/../include/host_defines.h"
+	.file	7	"/usr/local/cuda/bin/../include/builtin_types.h"
+	.file	8	"/usr/local/cuda/bin/../include/device_types.h"
+	.file	9	"/usr/local/cuda/bin/../include/driver_types.h"
+	.file	10	"/usr/local/cuda/bin/../include/surface_types.h"
+	.file	11	"/usr/local/cuda/bin/../include/texture_types.h"
+	.file	12	"/usr/local/cuda/bin/../include/vector_types.h"
+	.file	13	"/usr/local/cuda/bin/../include/device_launch_parameters.h"
+	.file	14	"/usr/local/cuda/bin/../include/crt/storage_class.h"
+	.file	15	"/usr/include/x86_64-linux-gnu/bits/types.h"
+	.file	16	"/usr/include/time.h"
+	.file	17	"/usr/include/stdint.h"
+	.file	18	"connected_comp.cu"
+	.file	19	"/usr/local/cuda/bin/../include/common_functions.h"
+	.file	20	"/usr/local/cuda/bin/../include/math_functions.h"
+	.file	21	"/usr/local/cuda/bin/../include/math_constants.h"
+	.file	22	"/usr/local/cuda/bin/../include/device_functions.h"
+	.file	23	"/usr/local/cuda/bin/../include/sm_11_atomic_functions.h"
+	.file	24	"/usr/local/cuda/bin/../include/sm_12_atomic_functions.h"
+	.file	25	"/usr/local/cuda/bin/../include/sm_13_double_functions.h"
+	.file	26	"/usr/local/cuda/bin/../include/sm_20_atomic_functions.h"
+	.file	27	"/usr/local/cuda/bin/../include/sm_20_intrinsics.h"
+	.file	28	"/usr/local/cuda/bin/../include/surface_functions.h"
+	.file	29	"/usr/local/cuda/bin/../include/texture_fetch_functions.h"
+	.file	30	"/usr/local/cuda/bin/../include/math_functions_dbl_ptx1.h"
+
+
+	.entry _Z10initializePmS_PbS_9cudaGraph (
+		.param .u64 __cudaparm__Z10initializePmS_PbS_9cudaGraph_d_parents,
+		.param .u64 __cudaparm__Z10initializePmS_PbS_9cudaGraph_d_shadow,
+		.param .u64 __cudaparm__Z10initializePmS_PbS_9cudaGraph_d_mask,
+		.param .u64 __cudaparm__Z10initializePmS_PbS_9cudaGraph_d_edge_src,
+		.param .align 8 .b8 __cudaparm__Z10initializePmS_PbS_9cudaGraph_graph[32])
+	{
+	.reg .u16 %rh<5>;
+	.reg .u32 %r<5>;
+	.reg .u64 %rd<23>;
+	.reg .pred %p<5>;
+	.loc	18	17	0
+$LDWbegin__Z10initializePmS_PbS_9cudaGraph:
+	mov.u16 	%rh1, %ctaid.x;
+	mov.u16 	%rh2, %ntid.x;
+	mul.wide.u16 	%r1, %rh1, %rh2;
+	cvt.u32.u16 	%r2, %tid.x;
+	add.u32 	%r3, %r2, %r1;
+	cvt.u64.u32 	%rd1, %r3;
+	ld.param.u64 	%rd2, [__cudaparm__Z10initializePmS_PbS_9cudaGraph_graph+16];
+	setp.gt.u64 	%p1, %rd2, %rd1;
+	@%p1 bra 	$Lt_0_2050;
+	bra.uni 	$LBB8__Z10initializePmS_PbS_9cudaGraph;
+$Lt_0_2050:
+	.loc	18	22	0
+	mul.lo.u64 	%rd3, %rd1, 8;
+	ld.param.u64 	%rd4, [__cudaparm__Z10initializePmS_PbS_9cudaGraph_d_parents];
+	add.u64 	%rd5, %rd4, %rd3;
+	st.global.u64 	[%rd5+0], %rd1;
+	.loc	18	23	0
+	ld.param.u64 	%rd6, [__cudaparm__Z10initializePmS_PbS_9cudaGraph_d_shadow];
+	add.u64 	%rd7, %rd6, %rd3;
+	st.global.u64 	[%rd7+0], %rd1;
+	.loc	18	26	0
+	ld.param.u64 	%rd8, [__cudaparm__Z10initializePmS_PbS_9cudaGraph_graph+0];
+	add.u64 	%rd9, %rd8, %rd3;
+	ld.global.u64 	%rd10, [%rd9+0];
+	.loc	18	27	0
+	ld.global.u64 	%rd11, [%rd9+8];
+	.loc	18	28	0
+	mov.s64 	%rd12, %rd10;
+	setp.ge.u64 	%p2, %rd10, %rd11;
+	@%p2 bra 	$LBB8__Z10initializePmS_PbS_9cudaGraph;
+	sub.u64 	%rd13, %rd11, %rd10;
+	ld.param.u64 	%rd14, [__cudaparm__Z10initializePmS_PbS_9cudaGraph_d_edge_src];
+	mul.lo.u64 	%rd15, %rd10, 8;
+	add.u64 	%rd16, %rd14, %rd15;
+	mul.lo.u64 	%rd17, %rd11, 8;
+	add.u64 	%rd18, %rd14, %rd17;
+	ld.param.u64 	%rd19, [__cudaparm__Z10initializePmS_PbS_9cudaGraph_d_mask];
+	mov.s64 	%rd20, %rd13;
+$Lt_0_3074:
+ //<loop> Loop body line 28, nesting depth: 1, estimated iterations: unknown
+	.loc	18	30	0
+	mov.s16 	%rh3, 0;
+	.loc	18	28	0
+	ld.param.u64 	%rd19, [__cudaparm__Z10initializePmS_PbS_9cudaGraph_d_mask];
+	.loc	18	30	0
+	add.u64 	%rd21, %rd12, %rd19;
+	st.global.s8 	[%rd21+0], %rh3;
+	.loc	18	31	0
+	st.global.u64 	[%rd16+0], %rd1;
+	add.u64 	%rd12, %rd12, 1;
+	add.u64 	%rd16, %rd16, 8;
+	setp.ne.u64 	%p3, %rd16, %rd18;
+	@%p3 bra 	$Lt_0_3074;
+$LBB8__Z10initializePmS_PbS_9cudaGraph:
+	.loc	18	34	0
+	exit;
+$LDWend__Z10initializePmS_PbS_9cudaGraph:
+	} // _Z10initializePmS_PbS_9cudaGraph
+
+	.entry _Z14kernel_hookingPmS_PbS_S0_j9cudaGraph (
+		.param .u64 __cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_d_parents,
+		.param .u64 __cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_d_shadow,
+		.param .u64 __cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_d_mask,
+		.param .u64 __cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_d_edge_src,
+		.param .u64 __cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_d_over,
+		.param .u32 __cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_iter,
+		.param .align 8 .b8 __cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_graph[32])
+	{
+	.reg .u16 %rh<6>;
+	.reg .u32 %r<10>;
+	.reg .u64 %rd<34>;
+	.reg .pred %p<10>;
+	.loc	18	44	0
+$LDWbegin__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph:
+	mov.u16 	%rh1, %ctaid.x;
+	mov.u16 	%rh2, %ntid.x;
+	mul.wide.u16 	%r1, %rh1, %rh2;
+	cvt.u32.u16 	%r2, %tid.x;
+	add.u32 	%r3, %r2, %r1;
+	cvt.u64.u32 	%rd1, %r3;
+	mul.wide.u32 	%rd2, %r3, 2;
+	ld.param.u64 	%rd3, [__cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_graph+24];
+	setp.lt.u64 	%p1, %rd2, %rd3;
+	@%p1 bra 	$Lt_1_8706;
+	bra.uni 	$LBB18__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph;
+$Lt_1_8706:
+	.loc	18	54	0
+	mov.s64 	%rd4, %rd2;
+	add.u64 	%rd5, %rd2, 2;
+	.loc	18	44	0
+	ld.param.u64 	%rd3, [__cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_graph+24];
+	.loc	18	54	0
+	setp.gt.u64 	%p2, %rd5, %rd3;
+	selp.u64 	%rd6, %rd3, %rd5, %p2;
+	setp.ge.u64 	%p3, %rd2, %rd6;
+	@%p3 bra 	$LBB18__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph;
+	sub.u64 	%rd7, %rd6, %rd2;
+	ld.param.u64 	%rd8, [__cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_d_mask];
+	mov.s64 	%rd9, %rd7;
+$Lt_1_6658:
+ //<loop> Loop body line 54, nesting depth: 1, estimated iterations: unknown
+	ld.param.u64 	%rd8, [__cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_d_mask];
+	.loc	18	56	0
+	add.u64 	%rd10, %rd4, %rd8;
+	ld.global.s8 	%r4, [%rd10+0];
+	mov.u32 	%r5, 0;
+	setp.ne.s32 	%p4, %r4, %r5;
+	@%p4 bra 	$Lt_1_6914;
+	.loc	18	58	0
+	mul.lo.u64 	%rd11, %rd4, 8;
+	ld.param.u64 	%rd12, [__cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_d_edge_src];
+	add.u64 	%rd13, %rd12, %rd11;
+	ld.global.u64 	%rd14, [%rd13+0];
+	.loc	18	59	0
+	ld.param.u64 	%rd15, [__cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_graph+8];
+	add.u64 	%rd16, %rd15, %rd11;
+	ld.global.u64 	%rd17, [%rd16+0];
+	ld.param.u64 	%rd18, [__cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_d_parents];
+	mul.lo.u64 	%rd19, %rd14, 8;
+	add.u64 	%rd20, %rd18, %rd19;
+	ld.global.u64 	%rd21, [%rd20+0];
+	mul.lo.u64 	%rd22, %rd17, 8;
+	add.u64 	%rd23, %rd18, %rd22;
+	ld.global.u64 	%rd24, [%rd23+0];
+	setp.eq.u64 	%p5, %rd21, %rd24;
+	@%p5 bra 	$Lt_1_7170;
+	setp.le.u64 	%p6, %rd21, %rd24;
+	@%p6 bra 	$Lt_1_7682;
+	.loc	18	67	0
+	mov.s64 	%rd25, %rd21;
+	.loc	18	68	0
+	mov.s64 	%rd26, %rd24;
+	bra.uni 	$Lt_1_7426;
+$Lt_1_7682:
+	.loc	18	74	0
+	mov.s64 	%rd25, %rd24;
+	.loc	18	75	0
+	mov.s64 	%rd26, %rd21;
+$Lt_1_7426:
+	ld.param.u64 	%rd27, [__cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_d_shadow];
+	ld.param.u32 	%r6, [__cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_iter];
+	and.b32 	%r7, %r6, 1;
+	mov.u32 	%r8, 0;
+	setp.ne.u32 	%p7, %r7, %r8;
+	@%p7 bra 	$Lt_1_8194;
+	.loc	18	82	0
+	mul.lo.u64 	%rd28, %rd26, 8;
+	.loc	18	75	0
+	ld.param.u64 	%rd27, [__cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_d_shadow];
+	.loc	18	82	0
+	add.u64 	%rd29, %rd27, %rd28;
+	st.global.u64 	[%rd29+0], %rd25;
+	bra.uni 	$Lt_1_7938;
+$Lt_1_8194:
+	.loc	18	87	0
+	mul.lo.u64 	%rd30, %rd25, 8;
+	.loc	18	75	0
+	ld.param.u64 	%rd27, [__cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_d_shadow];
+	.loc	18	87	0
+	add.u64 	%rd31, %rd27, %rd30;
+	st.global.u64 	[%rd31+0], %rd26;
+$Lt_1_7938:
+	.loc	18	90	0
+	mov.s16 	%rh3, 0;
+	ld.param.u64 	%rd32, [__cudaparm__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph_d_over];
+	st.global.s8 	[%rd32+0], %rh3;
+	bra.uni 	$Lt_1_6914;
+$Lt_1_7170:
+	.loc	18	94	0
+	mov.s16 	%rh4, 1;
+	st.global.s8 	[%rd10+0], %rh4;
+$Lt_1_6914:
+$Lt_1_258:
+	.loc	18	96	0
+	add.u64 	%rd4, %rd4, 1;
+	setp.ne.u64 	%p8, %rd6, %rd4;
+	@%p8 bra 	$Lt_1_6658;
+$LBB18__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph:
+	.loc	18	97	0
+	exit;
+$LDWend__Z14kernel_hookingPmS_PbS_S0_j9cudaGraph:
+	} // _Z14kernel_hookingPmS_PbS_S0_j9cudaGraph
+
+	.entry _Z13kernel_updatePmS_j (
+		.param .u64 __cudaparm__Z13kernel_updatePmS_j_d_parents,
+		.param .u64 __cudaparm__Z13kernel_updatePmS_j_d_shadow,
+		.param .u32 __cudaparm__Z13kernel_updatePmS_j_vertex_cnt)
+	{
+	.reg .u16 %rh<4>;
+	.reg .u32 %r<6>;
+	.reg .u64 %rd<10>;
+	.reg .pred %p<3>;
+	.loc	18	102	0
+$LDWbegin__Z13kernel_updatePmS_j:
+	mov.u16 	%rh1, %ctaid.x;
+	mov.u16 	%rh2, %ntid.x;
+	mul.wide.u16 	%r1, %rh1, %rh2;
+	cvt.u32.u16 	%r2, %tid.x;
+	add.u32 	%r3, %r2, %r1;
+	cvt.u64.u32 	%rd1, %r3;
+	ld.param.u32 	%r4, [__cudaparm__Z13kernel_updatePmS_j_vertex_cnt];
+	cvt.u64.u32 	%rd2, %r4;
+	setp.gt.u64 	%p1, %rd2, %rd1;
+	@%p1 bra 	$Lt_2_1026;
+	bra.uni 	$LBB4__Z13kernel_updatePmS_j;
+$Lt_2_1026:
+	.loc	18	107	0
+	mul.lo.u64 	%rd3, %rd1, 8;
+	ld.param.u64 	%rd4, [__cudaparm__Z13kernel_updatePmS_j_d_shadow];
+	add.u64 	%rd5, %rd4, %rd3;
+	ld.global.u64 	%rd6, [%rd5+0];
+	ld.param.u64 	%rd7, [__cudaparm__Z13kernel_updatePmS_j_d_parents];
+	add.u64 	%rd8, %rd7, %rd3;
+	st.global.u64 	[%rd8+0], %rd6;
+$LBB4__Z13kernel_updatePmS_j:
+	.loc	18	108	0
+	exit;
+$LDWend__Z13kernel_updatePmS_j:
+	} // _Z13kernel_updatePmS_j
+
+	.entry _Z22kernel_pointer_jumpingPmS_j (
+		.param .u64 __cudaparm__Z22kernel_pointer_jumpingPmS_j_d_parents,
+		.param .u64 __cudaparm__Z22kernel_pointer_jumpingPmS_j_d_shadow,
+		.param .u32 __cudaparm__Z22kernel_pointer_jumpingPmS_j_vertex_cnt)
+	{
+	.reg .u16 %rh<4>;
+	.reg .u32 %r<6>;
+	.reg .u64 %rd<15>;
+	.reg .pred %p<5>;
+	.loc	18	113	0
+$LDWbegin__Z22kernel_pointer_jumpingPmS_j:
+	mov.u16 	%rh1, %ctaid.x;
+	mov.u16 	%rh2, %ntid.x;
+	mul.wide.u16 	%r1, %rh1, %rh2;
+	cvt.u32.u16 	%r2, %tid.x;
+	add.u32 	%r3, %r2, %r1;
+	cvt.u64.u32 	%rd1, %r3;
+	ld.param.u32 	%r4, [__cudaparm__Z22kernel_pointer_jumpingPmS_j_vertex_cnt];
+	cvt.u64.u32 	%rd2, %r4;
+	setp.gt.u64 	%p1, %rd2, %rd1;
+	@%p1 bra 	$Lt_3_2050;
+	bra.uni 	$LBB6__Z22kernel_pointer_jumpingPmS_j;
+$Lt_3_2050:
+	.loc	18	119	0
+	mul.lo.u64 	%rd3, %rd1, 8;
+	ld.param.u64 	%rd4, [__cudaparm__Z22kernel_pointer_jumpingPmS_j_d_parents];
+	add.u64 	%rd5, %rd3, %rd4;
+	ld.global.u64 	%rd6, [%rd5+0];
+	mul.lo.u64 	%rd7, %rd6, 8;
+	add.u64 	%rd8, %rd4, %rd7;
+	ld.global.u64 	%rd9, [%rd8+0];
+	setp.eq.u64 	%p2, %rd9, %rd6;
+	@%p2 bra 	$Lt_3_2562;
+$Lt_3_3074:
+	.loc	18	122	0
+	mov.s64 	%rd6, %rd9;
+	mul.lo.u64 	%rd10, %rd6, 8;
+	.loc	18	119	0
+	ld.param.u64 	%rd4, [__cudaparm__Z22kernel_pointer_jumpingPmS_j_d_parents];
+	.loc	18	122	0
+	add.u64 	%rd11, %rd4, %rd10;
+	ld.global.u64 	%rd9, [%rd11+0];
+	setp.ne.u64 	%p3, %rd9, %rd6;
+	@%p3 bra 	$Lt_3_3074;
+$Lt_3_2562:
+	.loc	18	125	0
+	ld.param.u64 	%rd12, [__cudaparm__Z22kernel_pointer_jumpingPmS_j_d_shadow];
+	add.u64 	%rd13, %rd12, %rd3;
+	st.global.u64 	[%rd13+0], %rd6;
+$LBB6__Z22kernel_pointer_jumpingPmS_j:
+	.loc	18	126	0
+	exit;
+$LDWend__Z22kernel_pointer_jumpingPmS_j:
+	} // _Z22kernel_pointer_jumpingPmS_j
+

@@ -1,0 +1,275 @@
+
+	.version 1.4
+	.target sm_11, map_f64_to_f32
+	// compiled with /usr/local/cuda/open64/lib//be
+	// nvopencc 4.0 built on 2011-05-12
+
+	//-----------------------------------------------------------
+	// Compiling /tmp/tmpxft_00005206_00000000-7_bfs_data_warp_centric.cpp3.i (/tmp/ccBI#.3eB9qa)
+	//-----------------------------------------------------------
+
+	//-----------------------------------------------------------
+	// Options:
+	//-----------------------------------------------------------
+	//  Target:ptx, ISA:sm_11, Endian:little, Pointer Size:64
+	//  -O3	(Optimization level)
+	//  -g0	(Debug level)
+	//  -m2	(Report advisories)
+	//-----------------------------------------------------------
+
+	.file	1	"<command-line>"
+	.file	2	"/tmp/tmpxft_00005206_00000000-6_bfs_data_warp_centric.cudafe2.gpu"
+	.file	3	"../../gpu_bench/cudalib/cudaGraph.h"
+	.file	4	"bfs_data_warp_centric.cu"
+	.file	5	"/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/stddef.h"
+	.file	6	"/usr/local/cuda/bin/../include/crt/device_runtime.h"
+	.file	7	"/usr/local/cuda/bin/../include/host_defines.h"
+	.file	8	"/usr/local/cuda/bin/../include/builtin_types.h"
+	.file	9	"/usr/local/cuda/bin/../include/device_types.h"
+	.file	10	"/usr/local/cuda/bin/../include/driver_types.h"
+	.file	11	"/usr/local/cuda/bin/../include/surface_types.h"
+	.file	12	"/usr/local/cuda/bin/../include/texture_types.h"
+	.file	13	"/usr/local/cuda/bin/../include/vector_types.h"
+	.file	14	"/usr/local/cuda/bin/../include/device_launch_parameters.h"
+	.file	15	"/usr/local/cuda/bin/../include/crt/storage_class.h"
+	.file	16	"/usr/include/bits/types.h"
+	.file	17	"/usr/include/time.h"
+	.file	18	"/usr/include/stdint.h"
+	.file	19	"/usr/local/cuda/bin/../include/common_functions.h"
+	.file	20	"/usr/local/cuda/bin/../include/math_functions.h"
+	.file	21	"/usr/local/cuda/bin/../include/math_constants.h"
+	.file	22	"/usr/local/cuda/bin/../include/device_functions.h"
+	.file	23	"/usr/local/cuda/bin/../include/sm_11_atomic_functions.h"
+	.file	24	"/usr/local/cuda/bin/../include/sm_12_atomic_functions.h"
+	.file	25	"/usr/local/cuda/bin/../include/sm_13_double_functions.h"
+	.file	26	"/usr/local/cuda/bin/../include/sm_20_atomic_functions.h"
+	.file	27	"/usr/local/cuda/bin/../include/sm_20_intrinsics.h"
+	.file	28	"/usr/local/cuda/bin/../include/surface_functions.h"
+	.file	29	"/usr/local/cuda/bin/../include/texture_fetch_functions.h"
+	.file	30	"/usr/local/cuda/bin/../include/math_functions_dbl_ptx1.h"
+
+
+	.entry _Z10initializePjm (
+		.param .u64 __cudaparm__Z10initializePjm_d_graph_property,
+		.param .u64 __cudaparm__Z10initializePjm_num_vertex)
+	{
+	.reg .u16 %rh<4>;
+	.reg .u32 %r<6>;
+	.reg .u64 %rd<7>;
+	.reg .pred %p<3>;
+	.loc	4	80	0
+$LDWbegin__Z10initializePjm:
+	mov.u16 	%rh1, %ctaid.x;
+	mov.u16 	%rh2, %ntid.x;
+	mul.wide.u16 	%r1, %rh1, %rh2;
+	cvt.u32.u16 	%r2, %tid.x;
+	add.u32 	%r3, %r2, %r1;
+	cvt.u64.u32 	%rd1, %r3;
+	ld.param.u64 	%rd2, [__cudaparm__Z10initializePjm_num_vertex];
+	setp.le.u64 	%p1, %rd2, %rd1;
+	@%p1 bra 	$Lt_0_1026;
+	.loc	4	85	0
+	mov.u32 	%r4, -256;
+	ld.param.u64 	%rd3, [__cudaparm__Z10initializePjm_d_graph_property];
+	mul.lo.u64 	%rd4, %rd1, 4;
+	add.u64 	%rd5, %rd3, %rd4;
+	st.global.u32 	[%rd5+0], %r4;
+$Lt_0_1026:
+	.loc	4	87	0
+	exit;
+$LDWend__Z10initializePjm:
+	} // _Z10initializePjm
+
+	.entry _Z6kernelPj9cudaGraph11my_worklistS1_j (
+		.param .u64 __cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j_vplist,
+		.param .align 8 .b8 __cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j_graph[32],
+		.param .align 8 .b8 __cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j_inworklist[16],
+		.param .align 8 .b8 __cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j___val_paramoutworklist[16],
+		.param .u32 __cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j_curr_level)
+	{
+	.reg .u16 %rh<4>;
+	.reg .u32 %rv1;
+	.reg .u32 %r<30>;
+	.reg .u64 %rd<51>;
+	.reg .pred %p<14>;
+	.local .align 8 .b8 __cuda___cuda_local_var_37733_14_non_const_local_worklist_1696[1024];
+	.loc	4	91	0
+$LDWbegin__Z6kernelPj9cudaGraph11my_worklistS1_j:
+	.loc	4	98	0
+	mov.u16 	%rh1, %ctaid.x;
+	mov.u16 	%rh2, %ntid.x;
+	mul.wide.u16 	%r1, %rh1, %rh2;
+	cvt.u32.u16 	%r2, %tid.x;
+	add.u32 	%r3, %r2, %r1;
+	cvt.u64.u32 	%rd1, %r3;
+	shr.u64 	%rd2, %rd1, 5;
+	cvt.u32.u64 	%r4, %rd2;
+	mul.lo.u32 	%r5, %r4, 32;
+	add.u32 	%r6, %r5, 32;
+	mov.s32 	%r7, %r6;
+	ld.param.u64 	%rd3, [__cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j_inworklist+8];
+	ld.global.u32 	%r8, [%rd3+0];
+	setp.gt.u32 	%p1, %r8, %r5;
+	@%p1 bra 	$Lt_1_7426;
+	bra.uni 	$LBB27__Z6kernelPj9cudaGraph11my_worklistS1_j;
+$Lt_1_7426:
+	.loc	4	100	0
+	setp.ge.u32 	%p2, %r8, %r6;
+	@%p2 bra 	$Lt_1_7938;
+	.loc	4	102	0
+	mov.s32 	%r7, %r8;
+$Lt_1_7938:
+	.loc	4	107	0
+	mov.s32 	%r9, %r5;
+	setp.ge.u32 	%p3, %r5, %r7;
+	@%p3 bra 	$Lt_1_13570;
+	sub.u32 	%r10, %r7, %r5;
+	ld.param.u64 	%rd4, [__cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j_inworklist+0];
+	cvt.u64.u32 	%rd5, %r5;
+	mul.wide.u32 	%rd6, %r5, 8;
+	add.u64 	%rd7, %rd4, %rd6;
+	and.b64 	%rd8, %rd1, 31;
+	ld.param.u64 	%rd9, [__cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j_graph+0];
+	ld.param.u64 	%rd10, [__cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j___val_paramoutworklist+8];
+	mov.u32 	%r11, 0;
+	mov.u64 	%rd11, __cuda___cuda_local_var_37733_14_non_const_local_worklist_1696;
+	mov.s32 	%r12, %r10;
+$Lt_1_8962:
+ //<loop> Loop body line 107, nesting depth: 1, estimated iterations: unknown
+	.loc	4	109	0
+	ld.global.u64 	%rd12, [%rd7+0];
+	.loc	4	110	0
+	mul.lo.u64 	%rd13, %rd12, 8;
+	.loc	4	107	0
+	ld.param.u64 	%rd9, [__cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j_graph+0];
+	.loc	4	110	0
+	add.u64 	%rd14, %rd9, %rd13;
+	ld.global.u64 	%rd15, [%rd14+0];
+	.loc	4	111	0
+	ld.global.u64 	%rd16, [%rd14+8];
+	sub.u64 	%rd17, %rd16, %rd15;
+	setp.le.u64 	%p4, %rd17, %rd8;
+	@%p4 bra 	$Lt_1_9218;
+	sub.u64 	%rd18, %rd17, %rd8;
+	add.u64 	%rd19, %rd18, 31;
+	shr.s64 	%rd20, %rd19, 63;
+	mov.s64 	%rd21, 31;
+	and.b64 	%rd22, %rd20, %rd21;
+	add.s64 	%rd23, %rd22, %rd19;
+	shr.s64 	%rd24, %rd23, 5;
+	ld.param.u64 	%rd25, [__cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j_graph+8];
+	mul.lo.u64 	%rd26, %rd15, 8;
+	add.s64 	%rd27, %rd25, %rd26;
+	mul.lo.u64 	%rd28, %rd8, 8;
+	add.s64 	%rd29, %rd27, %rd28;
+	mul.lo.u64 	%rd30, %rd17, 8;
+	add.s64 	%rd31, %rd27, %rd30;
+	ld.param.u64 	%rd32, [__cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j_vplist];
+	mov.s64 	%rd33, %rd24;
+$Lt_1_9730:
+ //<loop> Loop body line 111, nesting depth: 2, estimated iterations: unknown
+	.loc	4	115	0
+	ld.global.u64 	%rd34, [%rd29+0];
+	mul.lo.u64 	%rd35, %rd34, 4;
+	.loc	4	111	0
+	ld.param.u64 	%rd32, [__cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j_vplist];
+	.loc	4	115	0
+	add.u64 	%rd36, %rd32, %rd35;
+	ld.global.u32 	%r13, [%rd36+0];
+	mov.u32 	%r14, -256;
+	setp.ne.u32 	%p5, %r13, %r14;
+	@%p5 bra 	$Lt_1_10498;
+	.loc	4	118	0
+	ld.param.u32 	%r15, [__cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j_curr_level];
+	add.u32 	%r16, %r15, 1;
+	st.global.u32 	[%rd36+0], %r16;
+	.loc	4	120	0
+	cvt.u64.u32 	%rd37, %r11;
+	mul.wide.u32 	%rd38, %r11, 8;
+	add.u64 	%rd39, %rd11, %rd38;
+	st.local.u64 	[%rd39+0], %rd34;
+	.loc	4	121	0
+	add.u32 	%r11, %r11, 1;
+	mov.u32 	%r17, 128;
+	setp.ne.u32 	%p6, %r11, %r17;
+	@%p6 bra 	$Lt_1_10498;
+	.loc	4	107	0
+	ld.param.u64 	%rd10, [__cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j___val_paramoutworklist+8];
+	.loc	4	54	0
+	atom.global.add.u32 	%r18, [%rd10], %r11;
+	mov.s32 	%r19, %r18;
+	mov.u32 	%r20, 0;
+	setp.eq.u32 	%p7, %r11, %r20;
+	@%p7 bra 	$Lt_1_11010;
+	mov.s32 	%r21, %r11;
+	mov.s32 	%r22, %r19;
+	add.u32 	%r23, %r19, %r11;
+	mov.u64 	%rd40, __cuda___cuda_local_var_37733_14_non_const_local_worklist_1696;
+	ld.param.u64 	%rd41, [__cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j___val_paramoutworklist+0];
+	mov.s32 	%r24, %r21;
+$Lt_1_11522:
+ //<loop> Loop body line 54, nesting depth: 3, estimated iterations: unknown
+	.loc	4	57	0
+	ld.local.u64 	%rd42, [%rd40+0];
+	cvt.u64.u32 	%rd43, %r22;
+	mul.wide.u32 	%rd44, %r22, 8;
+	.loc	4	54	0
+	ld.param.u64 	%rd41, [__cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j___val_paramoutworklist+0];
+	.loc	4	57	0
+	add.u64 	%rd45, %rd41, %rd44;
+	st.global.u64 	[%rd45+0], %rd42;
+	add.u32 	%r22, %r22, 1;
+	add.u64 	%rd40, %rd40, 8;
+	setp.ne.u32 	%p8, %r22, %r23;
+	@%p8 bra 	$Lt_1_11522;
+$Lt_1_11010:
+	.loc	4	124	0
+	mov.u32 	%r11, 0;
+$Lt_1_10498:
+$Lt_1_9986:
+	add.s64 	%rd29, %rd29, 256;
+	setp.lt.u64 	%p9, %rd29, %rd31;
+	@%p9 bra 	$Lt_1_9730;
+$Lt_1_9218:
+	add.u32 	%r9, %r9, 1;
+	add.u64 	%rd7, %rd7, 8;
+	setp.ne.u32 	%p10, %r7, %r9;
+	@%p10 bra 	$Lt_1_8962;
+	bra.uni 	$Lt_1_8450;
+$Lt_1_13570:
+	ld.param.u64 	%rd10, [__cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j___val_paramoutworklist+8];
+	mov.u32 	%r11, 0;
+$Lt_1_8450:
+	.loc	4	54	0
+	atom.global.add.u32 	%r25, [%rd10], %r11;
+	mov.s32 	%r19, %r25;
+	mov.u32 	%r26, 0;
+	setp.eq.u32 	%p11, %r11, %r26;
+	@%p11 bra 	$LBB27__Z6kernelPj9cudaGraph11my_worklistS1_j;
+	mov.s32 	%r27, %r11;
+	mov.s32 	%r22, %r19;
+	add.u32 	%r23, %r19, %r11;
+	mov.u64 	%rd40, __cuda___cuda_local_var_37733_14_non_const_local_worklist_1696;
+	ld.param.u64 	%rd41, [__cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j___val_paramoutworklist+0];
+	mov.s32 	%r28, %r27;
+$Lt_1_13058:
+ //<loop> Loop body line 54, nesting depth: 1, estimated iterations: unknown
+	.loc	4	57	0
+	ld.local.u64 	%rd46, [%rd40+0];
+	cvt.u64.u32 	%rd47, %r22;
+	mul.wide.u32 	%rd48, %r22, 8;
+	.loc	4	54	0
+	ld.param.u64 	%rd41, [__cudaparm__Z6kernelPj9cudaGraph11my_worklistS1_j___val_paramoutworklist+0];
+	.loc	4	57	0
+	add.u64 	%rd49, %rd41, %rd48;
+	st.global.u64 	[%rd49+0], %rd46;
+	add.u32 	%r22, %r22, 1;
+	add.u64 	%rd40, %rd40, 8;
+	setp.ne.u32 	%p12, %r22, %r23;
+	@%p12 bra 	$Lt_1_13058;
+$LBB27__Z6kernelPj9cudaGraph11my_worklistS1_j:
+	.loc	4	134	0
+	exit;
+$LDWend__Z6kernelPj9cudaGraph11my_worklistS1_j:
+	} // _Z6kernelPj9cudaGraph11my_worklistS1_j
+

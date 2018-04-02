@@ -1,0 +1,30 @@
+1014	     14.0434	1.0000
+sid=3,cache efficiency=0.787526, avg_reqs_per_inst=16.585585, ratio_of_replace=0.946000, small_data=0.856057, pct_of_32=0.928934
+sid=4,cache efficiency=0.782147, avg_reqs_per_inst=16.736364, ratio_of_replace=0.941000, small_data=0.869636, pct_of_32=0.941911
+sid=4,cache efficiency=1.000000, avg_reqs_per_inst=20.291666, ratio_of_replace=0.516000, small_data=0.916324, pct_of_32=0.962465
+sid=3,cache efficiency=1.000000, avg_reqs_per_inst=20.785715, ratio_of_replace=0.551000, small_data=0.918508, pct_of_32=0.965794
+sid=4,cache efficiency=1.000000, avg_reqs_per_inst=18.305555, ratio_of_replace=0.322000, small_data=0.946889, pct_of_32=0.974359
+sid=3,cache efficiency=1.000000, avg_reqs_per_inst=19.151516, ratio_of_replace=0.353000, small_data=0.944093, pct_of_32=0.975419
+sid=4,cache efficiency=1.000000, avg_reqs_per_inst=16.728069, ratio_of_replace=0.278000, small_data=0.956476, pct_of_32=0.982456
+sid=3,cache efficiency=1.000000, avg_reqs_per_inst=18.504854, ratio_of_replace=0.286000, small_data=0.958552, pct_of_32=0.981390
+sid=4,cache efficiency=1.000000, avg_reqs_per_inst=15.311476, ratio_of_replace=0.253000, small_data=0.970557, pct_of_32=0.988417
+sid=3,cache efficiency=1.000000, avg_reqs_per_inst=17.102804, ratio_of_replace=0.271000, small_data=0.961749, pct_of_32=0.978409
+sid=3,cache efficiency=1.000000, avg_reqs_per_inst=16.137932, ratio_of_replace=0.249000, small_data=0.967415, pct_of_32=0.985643
+sid=4,cache efficiency=1.000000, avg_reqs_per_inst=14.066667, ratio_of_replace=0.243000, small_data=0.969984, pct_of_32=0.986428
+sid=4,cache efficiency=1.000000, avg_reqs_per_inst=12.809524, ratio_of_replace=0.246000, small_data=0.969198, pct_of_32=0.985205
+sid=3,cache efficiency=1.000000, avg_reqs_per_inst=15.084616, ratio_of_replace=0.255000, small_data=0.971953, pct_of_32=0.984785
+sid=3,cache efficiency=1.000000, avg_reqs_per_inst=14.190476, ratio_of_replace=0.249000, small_data=0.969799, pct_of_32=0.987889
+sid=4,cache efficiency=1.000000, avg_reqs_per_inst=11.512048, ratio_of_replace=0.253000, small_data=0.971743, pct_of_32=0.987614
+sid=3,cache efficiency=1.000000, avg_reqs_per_inst=13.402684, ratio_of_replace=0.251000, small_data=0.975964, pct_of_32=0.990251
+sid=4,cache efficiency=1.000000, avg_reqs_per_inst=10.327957, ratio_of_replace=0.252000, small_data=0.977095, pct_of_32=0.992541
+sid=3,cache efficiency=1.000000, avg_reqs_per_inst=12.031646, ratio_of_replace=0.246000, small_data=0.970542, pct_of_32=0.984282
+sid=4,cache efficiency=1.000000, avg_reqs_per_inst=8.843318, ratio_of_replace=0.248000, small_data=0.977592, pct_of_32=0.990938
+sid=3,cache efficiency=1.000000, avg_reqs_per_inst=10.909091, ratio_of_replace=0.249000, small_data=0.976562, pct_of_32=0.985067
+sid=4,cache efficiency=1.000000, avg_reqs_per_inst=7.073260, ratio_of_replace=0.253000, small_data=0.977732, pct_of_32=0.994174
+sid=3,cache efficiency=1.000000, avg_reqs_per_inst=8.920930, ratio_of_replace=0.245000, small_data=0.980709, pct_of_32=0.986178
+sid=4,cache efficiency=1.000000, avg_reqs_per_inst=5.514205, ratio_of_replace=0.249000, small_data=0.986090, pct_of_32=0.990073
+sid=3,cache efficiency=1.000000, avg_reqs_per_inst=7.413127, ratio_of_replace=0.253000, small_data=0.979688, pct_of_32=0.986709
+sid=4,cache efficiency=1.000000, avg_reqs_per_inst=3.987578, ratio_of_replace=0.255000, small_data=0.981828, pct_of_32=0.985722
+sid=3,cache efficiency=1.000000, avg_reqs_per_inst=5.751479, ratio_of_replace=0.251000, small_data=0.979424, pct_of_32=0.994748
+sid=3,cache efficiency=1.000000, avg_reqs_per_inst=4.010482, ratio_of_replace=0.247000, small_data=0.976999, pct_of_32=0.983414
+75754	      4.0338	0.3269
